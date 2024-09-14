@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2024 at 12:52 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Sep 14, 2024 at 12:28 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `residents` (
+  `resident_id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) NOT NULL,
   `nickname` varchar(255) DEFAULT NULL,
@@ -43,8 +44,11 @@ CREATE TABLE `residents` (
   `resident_status` enum('Active','Inactive') NOT NULL,
   `voter_status` varchar(255) NOT NULL,
   `PWD` varchar(255) DEFAULT NULL,
-  `resident_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `email` varchar(255) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `telephone` int(11) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -56,7 +60,7 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
