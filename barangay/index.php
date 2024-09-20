@@ -1,27 +1,33 @@
 <?php
-require 'connection.php';
+require 'includes/connection.php';
 
+$msg = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	if (isset($username) && isset($password)) {
+	if (isset($_POST['register'])) {
+		header("Location: register.php");
+	}
+
+
+	if (isset($username) && isset($password) && strlen($username) > 0 && strlen($password) > 0) {
 		$sql = "SELECT * FROM users WHERE username ='$username'";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
-			if ($password === $row["password"]) {
+			if (password_verify($password, $row['password'])) {
 				$_SESSION["username"] = $username;
 				header("Location: dashboard.php");
 			} else {
-				echo "Wrong Password";
+				$msg = "Wrong Password";
 			}
 		} else {
-			echo "User doesn't exists";
+			$msg = "User doesn't exists";
 		}
 	} else {
-		echo "Please provide a username and password";
+		$msg =  "Please provide a username and password";
 	}
 } ?>
 
@@ -29,9 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-	<!-- Design by foolishdeveloper.com -->
 
-	<title>Glassmorphism login Form Tutorial in html css</title>
+	<title>Log In</title>
 
 </head>
 
@@ -41,6 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="shape"></div>
 	</div>
 	<form action="" method="post">
+		<div class="text-center">
+			<p class="fs-5 text-danger fw-bold"><?php echo $msg ?></p>
+		</div>
 		<h3>Login Here</h3>
 
 		<label for="username">Username</label>
@@ -49,11 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<label for="password">Password</label>
 		<input name="password" type="password" placeholder="Password" id="password">
 
-		<button name="submit">Log In</button>
-		<div class="social">
-			<div class="go"><i class="fab fa-google"></i> Google</div>
-			<div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-		</div>
+		<button name="submit" class="text-bg-primary">Log In</button>
+		<button name="register">Register</button>
 	</form>
 </body>
 
@@ -105,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 
 	form {
-		height: 520px;
+
 		width: 400px;
 		background-color: rgba(255, 255, 255, 0.13);
 		position: absolute;
@@ -158,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 
 	button {
-		margin-top: 50px;
+		margin-top: 20px;
 		width: 100%;
 		background-color: #ffffff;
 		color: #080710;
