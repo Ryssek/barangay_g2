@@ -1,4 +1,8 @@
-<?php require "includes/connection.php" ?>
+<?php require "includes/connection.php";
+if (!isset($_SESSION['username'])) {
+  header("Location: index.php");
+  exit();
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,8 @@
-<?php require "includes/connection.php" ?>
+<?php require "includes/connection.php";
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,10 @@
     <?php include "includes/sidebar.php" ?>
 
     <div class="min-vh-100 p-3" style="width: 83%">
+        <div id="directory_link" class="p-3 rounded-4 bg-dark-subtle ">
+            <a href="manage_com.php" class="text-danger text-decoration-none">Manage Request</a>
+            <a href="manage_complaints.php" class="text-decoration-none text-black-50">/ Manage Complaint</a>
+        </div>
         <h1 class="text-danger">Manage Complaints</h1>
         <p>This is where you can manage complaints</p>
 
@@ -24,7 +32,7 @@
                 <div class="ctrl-body mt-2">
                     <p>See the list of all registered residents</p>
 
-                    <a href="residents_list.php" class="btn btn-danger">Go to Complaints List</a>
+                    <a href="complaints_list.php" class="btn btn-danger">Go to Complaints List</a>
                 </div>
             </div>
             <div class="manage-ctrl pb-2 px-0 w-100 text-center col-md-4 border border-1 border-danger">
@@ -34,7 +42,7 @@
                 <div class="ctrl-body mt-2">
                     <p>Searh for the individual residents and edit their details</p>
 
-                    <a href="search_residents.php" class="btn btn-danger">Search Complaints</a>
+                    <a href="search_complaints.php" class="btn btn-danger">Search Complaints</a>
                 </div>
             </div>
 
@@ -45,7 +53,7 @@
                 <div class="ctrl-body mt-2">
                     <p>Add a new resident with step by step guidance</p>
 
-                    <a href="create_resident.php" class="btn btn-danger"></a>
+                    <a href="create_complaints.php" class="btn btn-danger">Create Complaint</a>
                 </div>
             </div>
             <div class="text-center">

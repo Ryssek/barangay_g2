@@ -1,5 +1,6 @@
 <?php require "includes/connection.php" ?>
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //Storing input data to var and sanitizing data for security!
   $username = filter_input(INPUT_POST, "user", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -72,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   body {
-    background-color: #080710;
+    background-color: #080710 !important;
   }
 
   .background {

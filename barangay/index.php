@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="shape"></div>
 		<div class="shape"></div>
 	</div>
-	<form action="" method="post">
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 		<div class="text-center">
 			<p class="fs-5 text-danger fw-bold"><?php echo $msg ?></p>
 		</div>
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 
 	body {
-		background-color: #080710;
+		background-color: #080710 !important;
 	}
 
 	.background {
