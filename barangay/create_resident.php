@@ -5,7 +5,7 @@
 if (!isset($_SESSION['username'])) {
   header("Location: index.php");
   exit();
-}
+  }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $first_name = $_POST['first_name'];
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
     echo "<strong>User already exists!</strong> ";
     echo "</div>";
-  } else {
+    } else {
     if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
       $photo_name = $_FILES["photo"]["name"];
       $photo_tmp = $_FILES["photo"]["tmp_name"];
@@ -47,23 +47,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql)) {
           header("Location: manage_res.php");
           exit();
-        } else {
+          } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-      } else {
+          }
+        } else {
         echo "<div class='alert alert-danger fixed-top text-center alert-dismissible fade show' role='alert'>";
         echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
         echo "<strong>ERROR UPLOADING FILE!</strong> ";
         echo "</div>";
-      }
-    } else {
+        }
+      } else {
       echo "<div class='alert alert-danger fixed-top text-center alert-dismissible fade show' role='alert'>";
       echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
       echo "<strong>NO FILE UPLOADED OR AN ERROR OCCURED!</strong> ";
       echo "</div>";
+      }
     }
   }
-}
 
 ?>
 
@@ -80,30 +80,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <?php include "includes/sidebar.php" ?>
   <div class="min-vh-100 pt-3" style="width: 83%">
     <div class="d-flex flex-column align-items-center justify-content-center container-md">
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="w-100" enctype="multipart/form-data">
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="w-100"
+        enctype="multipart/form-data">
         <div id="directory_link" class="p-3 rounded-4 mt-3 bg-dark-subtle ">
           <a href="manage_res.php" class="text-danger text-decoration-none">Manage Residents</a>
           <a href="create_resident.php" class="text-decoration-none text-black-50">/ Create Resident</a>
         </div>
-        <div class="py-2 mx-auto d-flex align-items-center justify-content-between my-2" style="border-bottom: 1px solid gray;">
+        <div class="py-2 mx-auto d-flex align-items-center justify-content-between my-2"
+          style="border-bottom: 1px solid gray;">
           <h2 class="text-danger">Add new Resident</h2>
         </div>
         <div class="row mt-3">
           <div class="mb-4 col-md-4">
             <label for="first_name" class="form-label">First Name</label>
-            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name..." required="true" />
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="middle_name" class="form-label">Middle Name</label>
-            <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name..." required="true" />
+            <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="last_name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last Name..." required="true" />
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last Name..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="nick_name" class="form-label">Nick Name</label>
-            <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="Nickname..." required="true" />
+            <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="Nickname..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
 
@@ -122,7 +128,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="mb-4 col-md-4">
             <label for="place_of_birth" class="form-label">Place of Birth</label>
-            <input type="text" class="form-control" name="place_of_birth" id="place_of_birth" placeholder="Place of Birth..." required="true" />
+            <input type="text" class="form-control" name="place_of_birth" id="place_of_birth"
+              placeholder="Place of Birth..." required="true" />
           </div>
           <div class="mb-4 col-md-4">
 
@@ -136,11 +143,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="mb-4 col-md-4">
             <label for="occupation" class="form-label">Occupation</label>
-            <input type="text" class="form-control" name="occupation" id="occupation" placeholder="Occupation..." required="true" />
+            <input type="text" class="form-control" name="occupation" id="occupation" placeholder="Occupation..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="religion" class="form-label">Religion</label>
-            <input type="text" class="form-control" name="religion" id="religion" placeholder="Religion..." required="true" />
+            <input type="text" class="form-control" name="religion" id="religion" placeholder="Religion..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="lot" class="form-label">Lot</label>
@@ -152,7 +161,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="mb-4 col-md-4">
             <label for="resident_status" class="form-label">Resident Status</label>
-            <input type="text" class="form-control" name="resident_status" id="resident_status" placeholder="Resident Status" required="true" />
+            <input type="text" class="form-control" name="resident_status" id="resident_status"
+              placeholder="Resident Status" required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="isVoter" class="form-label">Voter Status ~ isVoter</label>
@@ -172,21 +182,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           <div class="mb-4 col-md-4">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email..." required="true" />
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email..."
+              required="true" />
           </div>
           <div class="mb-4 col-md-4">
             <label for="phone_number" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Valid Phone number..." required="true" onkeypress="return /[0-9]/i.test(event.key)" pattern="[0-9]+">
+            <input type="text" class="form-control" id="phone_number" name="phone_number" length="11"
+              placeholder="Valid Phone number..." required="true" onkeypress="return /[0-9]/i.test(event.key)"
+              pattern="[0-9]+">
 
           </div>
           <div class="mb-4 col-md-4">
             <label for="telephone_number" class="form-label">Telephone Number</label>
-            <input type="text" class="form-control" name="telephone_number" id="telephone_number" placeholder="Your Telephone Number..." required="true" onkeypress="return /[0-9]/i.test(event.key)" pattern="[0-9]+" />
+            <input type="text" class="form-control" name="telephone_number" id="telephone_number"
+              placeholder="Your Telephone Number..." required="true" onkeypress="return /[0-9]/i.test(event.key)"
+              pattern="[0-9]+" />
           </div>
         </div>
         <div class=" col-md-6 mb-3">
           <label for="photo" class="form-label">Photo</label>
-          <input class="form-control border-dark-subtle " accept="image/*" type="file" name="photo" id="photo" onchange="showPreview(event);">
+          <input class="form-control border-dark-subtle " accept="image/*" type="file" name="photo" id="photo"
+            onchange="showPreview(event);">
           <div class="preview mt-2 d-none">
             <p class="fw-bold">Preview: </p>
             <img width="100" id="photo_preview">

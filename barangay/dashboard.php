@@ -75,38 +75,47 @@ $officialsResult = $conn->query($officialsQuery);
                     <h2 class="">Barangay - Information System</h2>
                 </div>
             </div>
-            <div id="dashboard-contents" class=" container-md w-100 d-flex align-items-center justify-content-center " style="min-height: 73svh;">
+            <div id="dashboard-contents" class=" container-md w-100 d-flex align-items-center justify-content-center "
+                style="min-height: 73svh;">
 
                 <div class="align-items-center justify-content-center  row row-cols-3 h-100 ">
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3  col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3  col">
                         <p class="card-name">Total Households</p>
                         <P class="fs-2"><?php echo $totalHouseholds ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Total Population</p>
                         <P class="fs-2"><?php echo $totalPopulation ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Male</p>
                         <P class="fs-2"><?php echo $totalMales; ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Female</p>
                         <P class="fs-2"><?php echo $totalFemales; ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Children</p>
                         <P class="fs-2"><?php echo $totalChildren; ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Senior</p>
                         <P class="fs-2"><?php echo $totalSeniors; ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">PWD</p>
                         <P class="fs-2"><?php echo $totalPWDsResult->num_rows ?></P>
                     </div>
-                    <div class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
+                    <div
+                        class="dashboard-content rounded-3 border border-2 border-dark-subtle py-3 text-center mb-3 col">
                         <p class="card-name">Voters</p>
                         <P class="fs-2"><?php echo $totalVotersResult->num_rows ?></P>
                     </div>
@@ -116,7 +125,9 @@ $officialsResult = $conn->query($officialsQuery);
     </div>
 
     <div class="" style="width: 33%"></div>
-    <div class="d-flex flex-column shadow px-2" style="height: 100svh;border-right: 3px solid green; width: 33%; position:fixed; top: 0; right: 0; bottom: 0; overflow-y: scroll;" id="barangay_officials_container">
+    <div class="d-flex flex-column shadow px-2"
+        style="height: 100svh;border-right: 3px solid green; width: 33%; position:fixed; top: 0; right: 0; bottom: 0; overflow-y: scroll;"
+        id="barangay_officials_container">
         <div class="d-flex flex-column align-items-center justify-content-center" id="barangay_officials">
             <div class="my-3">
                 <h5 class="display-5 text-danger">Barangay Officials</h5>

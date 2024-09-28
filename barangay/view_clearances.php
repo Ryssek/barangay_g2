@@ -2,7 +2,7 @@
 if (!isset($_SESSION['username'])) {
   header("Location: index.php");
   exit();
-}
+  }
 $sql = "SELECT * FROM clearances ORDER BY resident_name ASC";
 
 $result = $conn->query($sql);
@@ -29,7 +29,7 @@ $result = $conn->query($sql);
       <div class="d-flex align-items-center justify-content-between  mt-2 gap-2 w-100">
         <div>
           <h1 class="m-0 text-danger">View Clearances</h1>
-          <span class="text-muted">This is where you can view all issued clearances</span class="text-muted">
+          <span class="text-muted">This is where you can view all issued clearances</span>
         </div>
         <a href="manage_clearances.php" class="btn btn-danger">Go Back</a>
       </div>
@@ -59,10 +59,10 @@ $result = $conn->query($sql);
                 echo "<td> <div class='d-flex align-items-center justify-content-center gap-2 h-100'> <a href='view_clearance_details.php?id={$row['id']}' class='btn btn-primary'>View</a>  <a href='update_clearance.php?id={$row['id']}' class='btn btn-danger'>Edit</a>  <a href='view_clearance_details.php?id={$row['id']}' class='btn btn-light'>Print</a> </div> </td>";
 
                 echo "</tr>";
-              }
-            } else {
+                }
+              } else {
               echo "<tr><td colspan = '6'> No records found </td></tr>";
-            }
+              }
             ?>
           </tbody>
           <tfoot>

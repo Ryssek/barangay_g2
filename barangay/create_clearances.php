@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="m-0 text-danger">Create Clearance</h1>
         <a href="manage_clearances.php" class="btn btn-danger">Go Back</a>
       </div>
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="w-100" enctype="multipart/form-data">
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="w-100"
+        enctype="multipart/form-data">
         <div class="py-2 mb-3 mx-auto" style="border-bottom: 1px solid gray;">
           <input type="hidden" name="id">
         </div>
@@ -70,15 +71,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="mb-4 col-12">
             <label for="clearance_type" class="form-label">Clearance Type</label>
-            <input type="text" class="form-control border-dark" name="clearance_type" id="clearance_type" placeholder="" required="true">
+            <input type="text" class="form-control border-dark" name="clearance_type" id="clearance_type" placeholder=""
+              required="true">
           </div>
           <div class="mb-4 col-12">
             <label for="date_issued" class="form-label">Date Issued</label>
-            <input type="date" class="form-control border-dark" name="date_issued" id="date_issued" placeholder="" required="true">
+            <input type="date" class="form-control border-dark" name="date_issued" id="date_issued" placeholder=""
+              required="true">
           </div>
           <div class="mb-4 col-12">
             <label for="valid_until" class="form-label">Valid Until</label>
-            <input type="date" class="form-control border-dark" name="valid_until" id="valid_until" placeholder="" required="true">
+            <input type="date" class="form-control border-dark" name="valid_until" id="valid_until" placeholder=""
+              required="true">
           </div>
           <div class="pt-3" style="border-top: 1px solid gray">
             <button type="submit" class="btn btn-primary">

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
     echo "<strong>User Already Exists!</strong> <br> Choose another Username";
     echo "</div>";
-  } else {
+    } else {
     //if there's no similar user then input the data 
     $query = "INSERT INTO `users` (`Username`,`Password`) VALUES ('$username','$hash')";
     $conn->query($query);
@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
     echo "<strong>Registered Successfully!</strong> <br> <a class='link-danger' href='index.php'> Proceed to Log in page? </a>";
     echo "</div>";
+    }
   }
-}
 
 
 ?>
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h3>Register Here</h3>
 
     <label for="username">Username</label>
-    <input name="user" type="text" placeholder="Email or Phone" id="username" required>
+    <input name="user" type="text" placeholder="Username" id="username" required>
 
     <label for="password">Password</label>
     <input name="pass" type="password" placeholder="Password" id="password" required>
